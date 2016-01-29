@@ -5,14 +5,14 @@ sudo: false
 python:
   - "2.7"
 
-# addons:
-#   apt:
-#     packages:
-#       - expect-dev  # provides unbuffer utility
-#       - python-lxml  # because pip installation is slow
-#       - python-simplejson
-      # - python-serial
-      # - python-yaml
+addons:
+  apt:
+    packages:
+      - expect-dev  # provides unbuffer utility
+      - python-lxml  # because pip installation is slow
+      - python-simplejson
+      - python-serial
+      - python-yaml
 
 virtualenv:
   system_site_packages: true
@@ -27,9 +27,9 @@ env:
   - TESTS="1" ODOO_REPO="odoo/odoo" INCLUDE=base
 
 install:
-  # - git clone --single-branch --depth=1 https://github.com/vauxoo/maintainer-quality-tools.git -b master ${HOME}/maintainer-quality-tools
-  # - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
-    # - travis_install_nightly
+  - git clone --single-branch --depth=1 https://github.com/vauxoo/maintainer-quality-tools.git -b master ${HOME}/maintainer-quality-tools
+  - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
+  - travis_install_nightly
   - pip install coveralls
   # - cat $(which coveralls)
   # - eval $(/usr/bin/python -c "import coveralls;print 'export COVFILE=' + coveralls.api.__file__[:-1]"); echo $COVFILE; sed -i "s/json_string = self.create_report()/json_string = self.create_report();print \"json_string\",json_string/g" $COVFILE
