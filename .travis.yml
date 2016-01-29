@@ -38,5 +38,6 @@ install:
 script:
   # - travis_run_tests
   - coveralls
+  - cat .coveralls.yml
 # after_success:
 #   - travis_after_tests_success
