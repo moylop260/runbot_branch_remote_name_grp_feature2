@@ -33,7 +33,7 @@ install:
   - pip install coveralls
   # - cat $(which coveralls)
   # - eval $(/usr/bin/python -c "import coveralls;print 'export COVFILE=' + coveralls.api.__file__[:-1]"); echo $COVFILE; sed -i "s/json_string = self.create_report()/json_string = self.create_report();print \"json_string\",json_string/g" $COVFILE
-  - coveralls;sed -i "s/json_string = self.create_report()/json_string = self.create_report();print \"json_string\",json_string/g" $(/usr/bin/python -c "import coveralls;print coveralls.api.__file__[:-1]")
+  - coveralls;sed -i "s/json_string = self.create_report()/json_string = self.create_report();print \"json_string\",json_string/g" $(python -c "import coveralls;print coveralls.api.__file__[:-1]")
 
 script:
   - travis_run_tests
